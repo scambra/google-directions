@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/c8e8edd45bf2a9c3bdbe45eb149ab8c1/m "wercker status")](https://app.wercker.com/project/bykey/c8e8edd45bf2a9c3bdbe45eb149ab8c1)
+
 # Google::Directions
 
 A ruby library to use [Google Directions API](https://developers.google.com/maps/documentation/directions/)
