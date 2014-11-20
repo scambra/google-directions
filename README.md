@@ -1,6 +1,6 @@
 # Google::Directions
 
-TODO: Write a gem description
+A ruby library to use [Google Directions API](https://developers.google.com/maps/documentation/directions/)
 
 ## Installation
 
