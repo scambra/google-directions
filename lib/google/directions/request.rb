@@ -24,13 +24,17 @@ module Google
       def parse_params
         {
           sensor:      params[:sensor] || false,
-          origin:      params[:origin],
-          destination: params[:destination]
+          origin:      params[:origin] || missing(:origin),
+          destination: params[:destination] || missing(:destination)
         }
       end
 
       def session
         @session ||= Patron::Session.new
+      end
+
+      def missing(name)
+        raise Error, "Missing parameter: #{name}"
       end
     end
   end

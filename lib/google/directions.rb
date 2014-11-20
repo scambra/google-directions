@@ -15,6 +15,7 @@ module Google
     end
 
     autoload :Config  , 'google/directions/config'
+    autoload :Error   , 'google/directions/error'
     autoload :Request , 'google/directions/request'
     autoload :Version , 'google/directions/version'
   end
