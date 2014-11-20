@@ -1,0 +1,13 @@
+box: nafu/ubuntu12.04-ruby2.1.1@1.0.1
+build:
+  steps:
+    - bundle-install
+    - script:
+        name: echo ruby information
+        code: |
+          echo "RUBY version $(ruby --version) running"
+          echo "FROM location $(which ruby)"
+        echo -p "Gem list: $(gem list)"
+    - script:
+        name: rspec
+        code: bundle exec rspec
