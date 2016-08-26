@@ -25,7 +25,8 @@
 #  * 'just' rspec: 'rspec'
 guard :rspec, cmd: 'bundle exec rspec' do
   watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb')  { "spec" }
+  watch(%r{^lib/(.+)\.rb$})                   { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^lib/google/directions/(.+)\.rb$}) { |m| "spec/google/directions/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb')                { "spec" }
 end
 
