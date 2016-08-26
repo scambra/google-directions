@@ -22,11 +22,22 @@ module Google
       private
 
       def parse_params
-        {
+        parsed_params = {
           sensor:      params[:sensor] || false,
           origin:      params[:origin] || missing(:origin),
-          destination: params[:destination] || missing(:destination)
+          destination: params[:destination] || missing(:destination),
         }
+
+        parsed_params[:waypoints] = parse_waypoints if params[:waypoints]
+
+        parsed_params
+      end
+
+      def parse_waypoints
+        optimize = !!params[:optimize] || false
+        waypoints = params[:waypoints].join('|')
+
+        "optimize:#{optimize}|#{waypoints}"
       end
 
       def session

@@ -28,5 +28,24 @@ describe Google::Directions::Request do
         expect{subject.get(params)}.to raise_error Google::Directions::Error, 'Missing parameter: destination'
       end
     end
+
+    context "when there is waypoints" do
+      let(:waypoints) do
+        [
+          'R. Serra de Bragança, 395 - Vila Gomes Cardim',
+          'R. Padre Adelino, 445 - Quarta Parada'
+        ]
+      end
+
+      before do
+        params[:waypoints] = waypoints
+      end
+
+      it 'should return a parsed JSON response' do
+        VCR.use_cassette('get_directions_with_waypoints') do
+          expect(subject.get(params)['status']).to eq "OK"
+        end
+      end
+    end
   end
 end
