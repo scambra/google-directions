@@ -29,7 +29,7 @@ describe Google::Directions::Request do
       end
     end
 
-    context "when there is waypoints" do
+    context "when there are waypoints" do
       let(:waypoints) do
         [
           'R. Serra de Bragança, 395 - Vila Gomes Cardim',
