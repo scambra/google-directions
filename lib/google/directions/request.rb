@@ -27,7 +27,7 @@ module Google
         parsed_params = {
           sensor:      params[:sensor] || false,
           origin:      params[:origin] || missing(:origin),
-          destination: params[:destination] || missing(:destination),
+          destination: params[:destination] || missing(:destination)
         }
 
         parsed_params[:waypoints] = parse_waypoints if params[:waypoints]
