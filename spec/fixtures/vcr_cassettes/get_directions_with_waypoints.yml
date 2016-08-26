@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://maps.googleapis.com/maps/api/directions/json?destination=Rua%20Frei%20Galv%C3%A3o,%2069,%20S%C3%A3o%20Paulo&origin=Rua%20Euclides%20Pacheco,%201035,%20S%C3%A3o%20Paulo&sensor=false&waypoints=optimize:false%7CR.%20Serra%20de%20Bragan%C3%A7a,%20395%20-%20Vila%20Gomes%20Cardim%7CR.%20Padre%20Adelino,%20445%20-%20Quarta%20Parada
+    uri: http://maps.googleapis.com/maps/api/directions/json?destination=Rua%20Frei%20Galv%C3%A3o,%2069,%20S%C3%A3o%20Paulo&mode=driving&origin=Rua%20Euclides%20Pacheco,%201035,%20S%C3%A3o%20Paulo&sensor=false&waypoints=optimize:false%7CR.%20Serra%20de%20Bragan%C3%A7a,%20395%20-%20Vila%20Gomes%20Cardim%7CR.%20Padre%20Adelino,%20445%20-%20Quarta%20Parada
     body:
       encoding: US-ASCII
       string: ''
@@ -19,9 +19,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Fri, 26 Aug 2016 13:10:10 GMT
+      - Fri, 26 Aug 2016 13:15:59 GMT
       Expires:
-      - Sat, 27 Aug 2016 13:10:10 GMT
+      - Sat, 27 Aug 2016 13:15:59 GMT
       Cache-Control:
       - public, max-age=86400
       Server:
@@ -809,5 +809,5 @@ http_interactions:
         IDogW10sCiAgICAgICAgICJ3YXlwb2ludF9vcmRlciIgOiBbIDAsIDEgXQog
         ICAgICB9CiAgIF0sCiAgICJzdGF0dXMiIDogIk9LIgp9Cg==
     http_version: 
-  recorded_at: Fri, 26 Aug 2016 13:10:10 GMT
+  recorded_at: Fri, 26 Aug 2016 13:15:59 GMT
 recorded_with: VCR 2.9.3

@@ -8,7 +8,7 @@ describe Google::Directions::Request do
     } }
 
     it "should return a parsed JSON response" do
-      VCR.use_cassette('request_get') do
+      VCR.use_cassette('get_directions_simple') do
         expect(subject.get(params)['status']).to eq "OK"
       end
     end

@@ -4,6 +4,8 @@ module Google
       BASE_URL = 'http://maps.googleapis.com'
       GET_PATH = '/maps/api/directions/json'
 
+      DRIVING_MODE = 'driving'
+
       attr_reader :params, :response
 
       def initialize
@@ -29,6 +31,7 @@ module Google
         }
 
         parsed_params[:waypoints] = parse_waypoints if params[:waypoints]
+        parsed_params[:mode] = params[:mode] || DRIVING_MODE
 
         parsed_params
       end
