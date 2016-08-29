@@ -1,6 +1,14 @@
-box: nafu/ubuntu12.04-ruby2.1.1@1.0.1
+box: wercker/rvm
 build:
   steps:
+    - script:
+      name: install ruby
+      code: |
+        rvm get latest
+        rvm reload
+        rvm install ruby-2.2.5
+        rvm --default use 2.2.5
+        gem install bundler
     - bundle-install
     - script:
         name: echo ruby information
