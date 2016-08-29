@@ -2,20 +2,20 @@ box: wercker/rvm
 build:
   steps:
     - script:
-      name: install ruby
-      code: |
-        rvm get latest
-        rvm reload
-        rvm install ruby-2.2.5
-        rvm --default use 2.2.5
-        gem install bundler
+        name: install ruby
+        code: |
+          rvm get latest
+          rvm reload
+          rvm install ruby-2.2.5
+          rvm --default use 2.2.5
+          gem install bundler
     - bundle-install
     - script:
         name: echo ruby information
         code: |
           echo "RUBY version $(ruby --version) running"
           echo "FROM location $(which ruby)"
-        echo -p "Gem list: $(gem list)"
+          echo -p "Gem list: $(gem list)"
     - script:
         name: rspec
         code: bundle exec rspec
