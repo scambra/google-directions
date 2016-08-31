@@ -17,6 +17,21 @@ describe Google::Directions::Request do
       end
     end
 
+    context 'when private key is set' do
+      let(:url_with_key) { /^\S+key=\S+$/ }
+
+      before do
+        allow(Google::Directions.config).to receive(:private_key).and_return('MY_PRIVATE_KEY')
+      end
+
+      it 'should use key over HTTPS in request' do
+        expect_any_instance_of(Patron::Session).to receive(:base_url=).with(/https/)
+        expect_any_instance_of(Patron::Session).to receive(:get).with(url_with_key).once
+
+        subject.get(params)
+      end
+    end
+
     context 'when origin is missing' do
       let(:params) { { destination: 'Rua Frei Galvão, 69, São Paulo' } }
 

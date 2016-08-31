@@ -1,7 +1,7 @@
 module Google
   module Directions
     class Request
-      BASE_URL = 'http://maps.googleapis.com'
+      BASE_URL = 'maps.googleapis.com'
       GET_PATH = '/maps/api/directions/json'
 
       DRIVING_MODE = 'driving'
@@ -9,7 +9,7 @@ module Google
       attr_reader :params, :response
 
       def initialize
-        session.base_url        = BASE_URL
+        session.base_url        = (private_key ? 'https://' : 'http://') + BASE_URL
         session.timeout         = Google::Directions.config.timeout
         session.connect_timeout = Google::Directions.config.connect_timeout
       end
@@ -18,7 +18,7 @@ module Google
         @params   = params.with_indifferent_access
         @response = session.get GET_PATH + '?' + parse_params.to_query
 
-        ::JSON.parse response.body
+        response ? ::JSON.parse(response.body) : nil
       end
 
       private
@@ -33,6 +33,8 @@ module Google
         parsed_params[:waypoints] = parse_waypoints if params[:waypoints]
         parsed_params[:mode] = params[:mode] || DRIVING_MODE
 
+        set_auth_params!(parsed_params)
+
         parsed_params
       end
 
@@ -43,12 +45,20 @@ module Google
         "optimize:#{optimize}|#{waypoints}"
       end
 
+      def set_auth_params!(parsed_params)
+        parsed_params[:key] = private_key if private_key
+      end
+
       def session
         @session ||= Patron::Session.new
       end
 
       def missing(name)
         raise Error, "Missing parameter: #{name}"
+      end
+
+      def private_key
+        Google::Directions.config.private_key
       end
     end
   end
