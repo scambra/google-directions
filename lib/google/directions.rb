@@ -16,6 +16,7 @@ module Google
 
     autoload :Config  , 'google/directions/config'
     autoload :Error   , 'google/directions/error'
+    autoload :Encoder , 'google/directions/encoder'
     autoload :Request , 'google/directions/request'
     autoload :Version , 'google/directions/version'
   end

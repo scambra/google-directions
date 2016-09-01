@@ -3,7 +3,8 @@ module Google
     class Config
       include Singleton
 
-      attr_accessor :client_id, :private_key, :timeout, :connect_timeout
+      attr_accessor :client_id, :private_key, :sign,
+                    :timeout, :connect_timeout
 
       def timeout
         @timeout || 10
@@ -11,6 +12,10 @@ module Google
 
       def connect_timeout
         @connect_timeout || 5
+      end
+
+      def sign
+        @sign || false
       end
     end
   end
