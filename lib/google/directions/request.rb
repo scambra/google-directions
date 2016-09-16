@@ -1,3 +1,5 @@
+require 'patron'
+
 module Google
   module Directions
     class Request
@@ -63,7 +65,7 @@ module Google
       end
 
       def session
-        @session ||= Patron::Session.new
+        @session ||= ::Patron::Session.new
       end
 
       def missing(name)
