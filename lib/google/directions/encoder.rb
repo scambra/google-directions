@@ -15,7 +15,7 @@ module Google
         binary_key = Base64.decode64(private_key.tr('-_','+/'))
         digest = OpenSSL::Digest.new('sha1')
         signature  = OpenSSL::HMAC.digest(digest, binary_key, uri_with_params)
-        signature = Base64.encode64(signature.tr('+/','-_')).tr("\n", '')
+        signature = Base64.encode64(signature).tr('+/','-_').tr("\n", '')
 
         "#{uri_with_params}&signature=#{signature}"
       end

@@ -8,7 +8,7 @@ describe Google::Directions::Encoder do
     subject { described_class.new(uri_with_params, private_key).encode }
 
     it 'creates signature from path and query' do
-      expect(subject).to eq("#{uri_with_params}&signature=VqUOoDBw//HLG5g76wWQLSg0/mw=")
+      expect(subject).to eq("#{uri_with_params}&signature=VqUOoDBw__HLG5g76wWQLSg0_mw=")
     end
   end
 end
